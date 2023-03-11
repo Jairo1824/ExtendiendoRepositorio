@@ -4,7 +4,7 @@ from AppGeneral import views
 
 urlpatterns = [
     path('', views.saludo),
-    path('sumate/', views.crear_persona, name= "sumate"),
+    path('sumate/', views.miembros, name= "sumate"),
 
 
 ]
