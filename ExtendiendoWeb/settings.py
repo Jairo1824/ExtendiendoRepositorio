@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ExtendiendoWeb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:/Users/cliente 1056/Desktop/ExtendiendoWeb/AppGeneral/Templates"],
+        'DIRS': [BASE_DIR/"ExtendiendoWeb/AppGeneral/Templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

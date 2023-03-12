@@ -7,12 +7,26 @@ from django.shortcuts import redirect
 # Create your views here.
 
 
-def saludo(request):
-    
-
-    return render(request,"AppGeneral/saludo.html")
 
 
-def miembros (request): 
+def saludo (request): 
+    nombre="Pepe"
+    contexto={"nombre":nombre}
+    return render  (request,"saludo.html",contexto)
 
-    return render  (request,"AppGeneral/crear-persona.html")
+def inicio (request): 
+
+    return render  (request,"inicio.html")
+
+def equipo (request): 
+
+    return render  (request,"equipo.html")
+
+def padre (request): 
+
+    return render  (request,"padre.html")
+
+
+def sumate (request): 
+
+    return render  (request,"sumate.html")
