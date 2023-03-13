@@ -14,3 +14,6 @@ class Persona (models.Model):
         texto= nombre+" "+apellido
 
         return texto
+    
+class Noticia (models.Model):
+    email=models.EmailField()

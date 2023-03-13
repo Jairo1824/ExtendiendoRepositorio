@@ -1,9 +1,31 @@
 {% extends "padre.html" %}
+{% load static %}
 
 
-{% block head %}
+{% block image %}
 
-En esta parte se suman al news latter <br>
-Seleccionan EMAIL, NOMBRE, APELLIDO, GRUPO(null), FECha NAc
+<section class="showcase">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static "assets/img/bg-showcase-1.jpg" %}')"></div>  
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>
+                    <form action = "/sumate/" method="POST">
+                        {% csrf_token %}
+                        <p>nombre: <input type="text" name="nombre"></p>
+                        <p>apellido: <input type="text" name="apellido"></p>
+                        <p>fecha_nacimiento: <input type="datetime" name="fecha_nacimiento"></p>
+                        <p>email: <input type="email" name="email"></p>
+                        <input type="submit" value="Enviar">
+                    </form>
+                    
 
-{% endblock head %}
+
+                    
+                </h2>
+                <p class="lead mb-0">   Registro finalizado  </p>
+            </div>
+        </div>
+
+
+{% endblock image %}

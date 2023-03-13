@@ -9,7 +9,4 @@ urlpatterns = [
     path("padre/",views.padre,name="padre"),
     path("sumate/",views.sumate,name="sumate"),
 
-
-
-
 ]
