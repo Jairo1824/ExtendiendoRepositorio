@@ -53,4 +53,25 @@ def sumate(request):
         mi_formulario= persona_formulario()
     
         return render ( request, "sumate.html",{"formulario_miembro":mi_formulario})
-    
+
+
+
+def leer_personas(request):
+    personas=Persona.objects.all()
+
+    contexto={"personas":personas}
+
+    return render(request,"leer-personas.html",contexto)
+
+
+
+#poner el login required
+def eliminar_personas(request,persona_email):
+    persona=Persona.objects.get(email=persona_email)
+    persona.delete()
+
+    personas= Persona.objects.all()
+
+    contexto={"personas":personas}
+
+    return render(request,"leer-personas.html",contexto)
