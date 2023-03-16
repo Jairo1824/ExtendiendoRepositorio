@@ -10,6 +10,10 @@ urlpatterns = [
     path("sumate/",views.sumate,name="sumate"),
     path("leer-personas/",views.leer_personas,name="leer-personas"),
     path("eliminar-personas/<persona_email>",views.eliminar_personas,name="eliminar-personas"),
+    path("editar-personas/<persona_email>",views.editar_personas,name="editar-personas"),
+    path("login/",views.login_request,name="login"),
+
+
 
 
 ]

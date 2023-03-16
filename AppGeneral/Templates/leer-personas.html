@@ -13,6 +13,8 @@
                     <li>{{p.email}}</li>
                     <button>
                         <a href= "{% url 'eliminar-personas' p.email %}" >Eliminar</a>
+                        <a href= "{% url 'editar-personas' p.email %}" >Editar</a>
+
                     </button>
                     {% endfor %}
                 </h2>
