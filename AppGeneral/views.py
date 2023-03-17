@@ -6,6 +6,8 @@ from AppGeneral.models import *
 from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -57,7 +59,7 @@ def sumate(request):
         return render ( request, "sumate.html",{"formulario_miembro":mi_formulario})
 
 
-
+@login_required
 def leer_personas(request):
     personas=Persona.objects.all()
 
@@ -66,8 +68,7 @@ def leer_personas(request):
     return render(request,"leer-personas.html",contexto)
 
 
-
-#poner el login required
+@login_required
 def eliminar_personas(request,persona_email):
     persona=Persona.objects.get(email=persona_email)
     persona.delete()
@@ -79,7 +80,7 @@ def eliminar_personas(request,persona_email):
     return render(request,"leer-personas.html",contexto)
 
 
-#poner el login required
+@login_required
 def editar_personas(request, persona_email):
 
     # Recibe el nombre del profesor que vamos a modificar
@@ -134,12 +135,34 @@ def login_request(request):
 
                 return render(request, "inicio.html", {"mensaje":f"Bienvenido {usuario}"})
             else:
-                return render(request, "inicio.html", {"mensaje":"Datos incorrectos"})
+                return render(request, "login.html", {"mensaje":"Datos incorrectos"})
         
         else:
 
-            return render(request, "inicio.html", {"mensaje":"Formulario erroneo"})
+            return render(request, "login.html", {"mensaje":"Formulario erroneo"})
 
     form = AuthenticationForm()
 
     return render(request, "login.html",{"form":form})
+
+@login_required
+def register(request):
+
+    if request.method == 'POST':
+
+            #form = UserCreationForm(request.POST)
+            form = UserRegisterForm(request.POST)
+            if form.is_valid():
+
+                username = form.cleaned_data['username']
+                form.save()
+                return render(request,"inicio.html" ,  {"mensaje":"Usuario Creado :)"})
+
+    else:
+            #form = UserCreationForm()       
+            form = UserRegisterForm()     
+
+    return render(request,"register.html" ,  {"form":form})
+
+
+
