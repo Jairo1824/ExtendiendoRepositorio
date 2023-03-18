@@ -6,10 +6,13 @@ from AppGeneral.models import *
 from django.shortcuts import redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm,UserEditForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+@login_required
+def manejo_usuarios(request):
+    return render(request,"manejo-usuarios.html")
 
 
 
@@ -133,7 +136,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
 
-                return render(request, "inicio.html", {"mensaje":f"Bienvenido {usuario}"})
+                return redirect("/")
             else:
                 return render(request, "login.html", {"mensaje":"Datos incorrectos"})
         
@@ -165,4 +168,33 @@ def register(request):
     return render(request,"register.html" ,  {"form":form})
 
 
+
+@login_required
+def editar_perfil(request):
+
+    usuario = request.user
+
+    if request.method == 'POST':
+
+        miFormulario = UserEditForm(request.POST)
+
+        if miFormulario.is_valid():
+
+            informacion = miFormulario.cleaned_data
+
+            usuario.email = informacion['email']
+            usuario.password1 = informacion['password1']
+            usuario.password2 = informacion['password2']
+            usuario.last_name = informacion['last_name']
+            usuario.first_name = informacion['first_name']
+
+            usuario.save()
+
+            return redirect("/")
+
+    else:
+
+        miFormulario = UserEditForm(initial={'email': usuario.email})
+
+    return render(request, "editar-perfil.html", {"miFormulario": miFormulario, "usuario": usuario})
 
