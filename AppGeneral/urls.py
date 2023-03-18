@@ -17,9 +17,7 @@ urlpatterns = [
     path("register/",views.register,name="register"),
     path("editar-perfil/",views.editar_perfil, name="editar-perfil"),
     path("manejo-usuarios/",views.manejo_usuarios, name="manejo-usuarios"),
-
-
-
+    path("agregar-avatar/",views.agregar_avatar, name="agregar-avatar"),
 
 
 ]

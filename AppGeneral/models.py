@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Persona (models.Model):
@@ -17,3 +18,10 @@ class Persona (models.Model):
     
 class Noticia (models.Model):
     email=models.EmailField()
+
+class Avatar(models.Model):
+    user= models.OneToOneField(User,on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to="avatares",null=True,blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.user}-{self.imagen}"

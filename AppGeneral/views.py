@@ -53,7 +53,7 @@ def sumate(request):
             return redirect('inicio')
         else:
 
-            return render(request, "AppGeneral/inicio.html", {"mensaje":"Lamentamos que,Algo no salio bien con tu solicitud. Intentalo nuevamente o mas tarde"})
+            return render(request, "inicio.html", {"mensaje":"Lamentamos que,Algo no salio bien con tu solicitud. Intentalo nuevamente o mas tarde"})
         
     
     else:
@@ -198,3 +198,17 @@ def editar_perfil(request):
 
     return render(request, "editar-perfil.html", {"miFormulario": miFormulario, "usuario": usuario})
 
+@login_required
+def agregar_avatar(request):
+    avatar = request.user.avatar
+    mi_formulario= AvatarFormulario(instance=avatar)
+
+    if request.method=="POST":
+        mi_formulario = AvatarFormulario(request.POST,request.FILES,instance=avatar)
+
+        if mi_formulario.is_valid():
+            mi_formulario.save()
+            return redirect("/")
+        
+    else:
+        return render(request,"agregar-avatar.html",{"mi_formulario":mi_formulario})
