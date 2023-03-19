@@ -10,7 +10,9 @@
         <div class="row g-0">
             <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{p.imagen.url}}')"></div>  
             <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <li><h1>{{p.nombre}}</h1>
+                    <li><h1>        <button>
+                        <a href= "{% url 'ver-predica' p.documento %}" >{{p.nombre}}</a>
+                    </button></h1>
                         <br>
                         <h5>{{p.fecha}}</h5>
                         <br>

@@ -233,4 +233,20 @@ def agregar_predica(request):
         
     else:
         return render(request,"agregar-predica.html",{"mi_formulario":mi_formulario})
+    
+
+def ver_predica(request,predica_documento):
+    predica=Predica.objects.get(documento=predica_documento)
+    
+    
+    documento=predica.documento
+    nombre=predica.nombre
+    fecha=predica.fecha
+
+
+
+    predicas={"documento":documento,"nombre":nombre,"fecha":fecha}
+
+
+    return render(request,"ver-predica.html",predicas)
 

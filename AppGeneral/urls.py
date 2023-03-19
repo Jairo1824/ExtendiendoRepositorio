@@ -20,6 +20,8 @@ urlpatterns = [
     path("agregar-avatar/",views.agregar_avatar, name="agregar-avatar"),
     path("predicas/",views.predicas, name="predicas"),
     path("agregar-predica/",views.agregar_predica, name="agregar-predica"),
+    path("ver-predica/<predica_documento>",views.ver_predica,name="ver-predica"),
+
 
 
 

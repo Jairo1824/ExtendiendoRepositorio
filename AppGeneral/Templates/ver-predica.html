@@ -1,0 +1,21 @@
+{% extends "padre.html" %}
+{% load static %}
+
+
+{% block image %}
+<h1> {{nombre}} </h1><br>
+<h5> {{fecha}} </h5> <br>
+<textarea name="" id="" cols="180" rows="50">{{documento}}</textarea><br><br>
+
+
+{% if user.is_authenticated %}
+
+<br>
+<br>
+<button>
+    <a href= "/agregar-predica/" >agregar-predicas</a>
+</button>
+{% endif %}
+
+
+{% endblock image %}
