@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Avatar
+from .models import Avatar , Predica
 
 # Create your models here.
 class persona_formulario (forms.Form):
@@ -45,3 +45,9 @@ class AvatarFormulario(forms.ModelForm):
         model = Avatar
         fields = "__all__"
         exclude=["user"]
+
+class PredicaFormulario (forms.ModelForm):
+    class Meta:
+        model = Predica
+        fields = "__all__"
+

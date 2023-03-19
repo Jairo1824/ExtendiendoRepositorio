@@ -5,5 +5,5 @@ from AppGeneral.models import *
 
 # Register your models here.
 admin.site.register(Persona)
-admin.site.register(Noticia)
 admin.site.register(Avatar)
+admin.site.register(Predica)

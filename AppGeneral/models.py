@@ -25,3 +25,12 @@ class Avatar(models.Model):
 
     def __str__(self) -> str:
         return f"{self.user}-{self.imagen}"
+    
+class Predica(models.Model):
+    nombre= models.CharField(max_length=40)
+    imagen = models.ImageField(upload_to="predicas",null=True,blank=True)
+    fecha =models.DateField()
+    documento = models.TextField()
+
+    def __str__(self) -> str:
+        return f"{self.nombre}-{self.imagen}"

@@ -18,6 +18,10 @@ urlpatterns = [
     path("editar-perfil/",views.editar_perfil, name="editar-perfil"),
     path("manejo-usuarios/",views.manejo_usuarios, name="manejo-usuarios"),
     path("agregar-avatar/",views.agregar_avatar, name="agregar-avatar"),
+    path("predicas/",views.predicas, name="predicas"),
+    path("agregar-predica/",views.agregar_predica, name="agregar-predica"),
+
+
 
 
 ]

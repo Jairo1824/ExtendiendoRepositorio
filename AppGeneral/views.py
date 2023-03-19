@@ -212,3 +212,25 @@ def agregar_avatar(request):
         
     else:
         return render(request,"agregar-avatar.html",{"mi_formulario":mi_formulario})
+
+def predicas(request):
+    predicas=Predica.objects.all()
+
+    contexto={"predicas":predicas}
+
+    return render(request,"predicas.html",contexto)
+
+@login_required
+def agregar_predica(request):
+    mi_formulario= PredicaFormulario(request.POST)
+
+    if request.method=="POST":
+        mi_formulario = PredicaFormulario(request.POST,request.FILES)
+
+        if mi_formulario.is_valid():
+            mi_formulario.save()
+            return redirect("/")
+        
+    else:
+        return render(request,"agregar-predica.html",{"mi_formulario":mi_formulario})
+
