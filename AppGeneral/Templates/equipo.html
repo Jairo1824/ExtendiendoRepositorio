@@ -1,12 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   Esta es la pagina de equipo
-</body>
-</html>
+{% extends "padre.html" %}
+{% load static %}
+
+
+{% block image %}
+
+<section class="showcase">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static "assets/img/pastoral.jpg" %}')"></div>  
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Equipo Pastoral</h2>
+                <p class="lead mb-0">Nestor y margar. Texto!</p>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-6 text-white showcase-img" style="background-image: url('{% static "assets/img/grupo-alabanza.jpg"%}')"></div>
+            <div class="col-lg-6 my-auto showcase-text">
+                <h2>ReySar 5</h2>
+                <p class="lead mb-0">Texto a eleccion</p>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{% static "assets/img/futbol.jpg"%}')"  ></div>
+            <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                <h2>Equipo futbol</h2>
+                <p class="lead mb-0">Sumate al futbol interiglesias</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock image %}

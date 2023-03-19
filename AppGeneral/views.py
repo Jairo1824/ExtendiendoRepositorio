@@ -25,6 +25,10 @@ def inicio (request):
 
     return render  (request,"inicio.html")
 
+def ubicacion (request): 
+
+    return render  (request,"ubicacion.html")
+
 def equipo (request): 
 
     return render  (request,"equipo.html")
@@ -32,6 +36,10 @@ def equipo (request):
 def padre (request): 
 
     return render  (request,"padre.html")
+
+def reuniones (request): 
+
+    return render  (request,"reuniones.html")
 
 
 def sumate(request):
